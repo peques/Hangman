@@ -1,2 +1,4 @@
 # Hangman
-Basic JavaScript Hangman Game
+JavaScript Hangman Game
+
+Designed to practice basic JavaScript fundamentals

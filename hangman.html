@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hangman</title>
+</head>
+<body>
+    <h1>Welcome to Hangman: The Office Edition!</h1>
+    <script>
+    
+        //Array of Characters
+        var char = [
+            "jim",
+            "pam",
+            "michael",
+            "dwight",
+            "andy",
+            "stanley",
+            "phylis",
+            "oscar",
+            "kevin",
+            "angela",
+            "kelly",
+            "ryan",
+            "toby"
+        ];
+
+        //Picks Random Character for the Answer
+        var ranChar = char[Math.floor(Math.random() * char.length)];
+
+        //Setting Answer Array
+        var answerArray = [];
+        for (i = 0; i < ranChar.length; i++) {
+            answerArray[i] = "_";
+        }
+
+        var remainingLetters = ranChar.length;
+
+        //Loop as Long as Game is Active
+        while (remainingLetters > 0) {
+
+            //Player Progress
+            alert(answerArray.join(" "));
+
+            //Guess from Player
+            var guess = prompt("Guess a letter or click Cancel to Quit");
+            if (guess === null) {
+                //Exit Game
+                break;                
+            } else if (guess.length !== 1) {
+                alert("Please Enter a Single Letter");
+             } else {
+                 //Update Game with Player Guess
+                    for (j = 0; j < ranChar.length; j++) {
+                     if (ranChar[j] === guess) {
+                         answerArray[j] = guess;
+                         remainingLetters--;
+                        }
+                    }
+                }
+            }
+        //End of Game Loop
+
+        //Show Answer
+        alert(answerArray.join(" "));
+        alert("Awesome! You guessed " + ranChar + "!");
+
+    </script>
+</body>
+</html>
